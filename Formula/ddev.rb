@@ -8,17 +8,14 @@ class Ddev < Formula
     # …then forward them exactly…
     super(*args, **kwargs)
 
-
-    if tap&.full_name == "rfay/homebrew-ddev"
+    if tap&.full_name == "drud/homebrew-ddev" || tap&.full_name == "rfay/homebrew-ddev"
       odie <<~EOS
-        ERROR: you’re still tapped as drud/homebrew-ddev, but that repository has moved.
+        ERROR: your homebrew tap is the ancient drud/ddev,
+        but that repository has moved.
         Please run:
-
-          brew untap drud/homebrew-ddev
-          brew tap   ddev/homebrew-ddev
-
-        Then:
-          brew install ddev
+          brew uninstall -f ddev
+          brew untap drud/ddev
+          brew install ddev/ddev/ddev
       EOS
     end
 
