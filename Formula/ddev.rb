@@ -10,6 +10,17 @@ class Ddev < Formula
 
   depends_on "mkcert"
 
+    if tap&.full_name == "rfay/ddev"
+      odie <<~EOS
+        ERROR: your homebrew tap is the long obsolete drud/ddev,
+        but that repository has moved.
+        Please run:
+          brew uninstall -f ddev
+          brew untap drud/ddev
+          brew install ddev/ddev/ddev
+      EOS
+    end
+
   on_macos do
     if Hardware::CPU.intel?
       url "https://github.com/ddev/ddev/releases/download/v1.24.4/ddev_macos-amd64.v1.24.4.tar.gz"
