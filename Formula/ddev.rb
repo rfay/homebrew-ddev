@@ -14,7 +14,6 @@ class Ddev < Formula
               brew untap drud/ddev
               brew install ddev/ddev/ddev
           EOS
-        end
     end
     desc "DDEV is a cross-platform local development environment for PHP, Python, and Ruby."end
   desc "DDEV"
